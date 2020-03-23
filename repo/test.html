@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp điện thoại</title>
+</head>
+<body>
+<script>
+    let Mobile = function (name,batteryStatus,inbox,outbox,draft,turnIO,) {
+        this.name = name;
+        this.batteryStatus = batteryStatus;
+        this.inbox = inbox;
+        this.outbox = outbox ;
+        this.draft = draft;
+        this.turnIO = turnIO;
+        this.checkPhone = function () {if ( this.turnIO === "On"){return this.checkPhone = "On";}
+        else { return this.checkPhone = "Off"}
+        };
+        this.charger = function () { for ( i = batteryStatus;i <=100 ;i++){
+            batteryStatus += i;}
+        };
+        this.typing = function (typing) { this.draft += "," + typing ;this.batteryStatus += -1};
+        this.send = function (Mobile,text) { this.outbox += "," + text ; Mobile.inbox +="," + text ; this.batteryStatus += -1;};
+    };
+    let Nokia = new Mobile('Nokia Godslayer',80,'Hello boy','Fuck you','Oh!..','On');
+    let Iphone = new Mobile('Iphone 11 pro MAX stone',40,'Fucking Tim Cock','Anabella','shit','On');
+    Iphone.send(Nokia,'Fuck you');
+    document.write(Nokia.inbox + '<br>');
+    document.write(Iphone.outbox + '<br>');
+    document.write(Iphone.batteryStatus);
+
+
+
+</script>
+</body>
+</html>
